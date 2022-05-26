@@ -1,5 +1,5 @@
 {% set name = "dask-mongo" %}
-{% set version = "2021.7.3" %}
+{% set version = "2022.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 17d93e7e3f82f9f70cb0994e118b8e8c473bca99c63f1b4278bc91ba971afdc9
+  sha256: a50dc71afa5d809e7501f135d1a5b7976f16625d0bbf5f416136ae8c46eef575
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
   run:
-    - python >=3.7
+    - python >=3.8
     - dask
     - distributed
     - pymongo
@@ -33,11 +33,11 @@ test:
     - pip check
 
 about:
-  home: https://github.com/coiled/dask-mongo 
+  home: https://github.com/coiled/dask-mongo
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Read and write data to MongoDB with Dask'
+  summary: Read and write data to MongoDB with Dask
   doc_url: https://github.com/coiled/dask-mongo/blob/main/README.md
   dev_url: https://github.com/coiled/dask-mongo
 
